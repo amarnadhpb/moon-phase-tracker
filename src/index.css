@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  
+  .animate-meteor {
+    animation: meteor 3s linear infinite;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .animate-meteor-fast {
+    animation: meteor 2s linear infinite;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .animate-meteor-slow {
+    animation: meteor 5s linear infinite;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Enhanced meteor effects */
+  .animate-meteor,
+  .animate-meteor-fast,
+  .animate-meteor-slow {
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes meteor {
+    0% {
+      transform: rotate(45deg) translateX(-100px) translateY(-100px);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(45deg) translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px));
+      opacity: 0;
+    }
+  }
+  
+
+  
+
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.8);
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Enhanced night sky effects */
+body {
+  background: radial-gradient(ellipse at center, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+/* Glow effects for interactive elements */
+.glow-on-hover:hover {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* Ensure proper mobile touch targets */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
